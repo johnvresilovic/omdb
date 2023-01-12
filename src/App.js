@@ -41,7 +41,7 @@ export default function App() {
   }
   //This will run on the first render but not on subsquent renders
   useEffect(() => {
-    getMovie("Star Wars");
+    getMovie("Brewster McCloud");
   }, []);
   // USE OUR COMPONENTS IN APPs RETURNED JSX
   return (
