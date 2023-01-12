@@ -1,14 +1,17 @@
+import Movie from "./Movie"
 // Define a function that is our component, always make sure to declare the props parameter so you can use props in your component
 // You can also destructure your props directly from the parameter list
-export default function  RecommendedMoviesDisplay ({ movies }){
+export default function RecommendedMoviesDisplay({ movies }) {
   //function to return loaded JSX
   const loaded = () => {
     return (
       <>
-        <h1>{movies.Title}</h1>
-        <h2>{movies.Genre}</h2>
-        <img src={movies.Poster} alt={movies.Title} />
-        <h2>{movies.Year}</h2>
+        <h1>Similar Titles</h1>
+        <div className="recommendedMoviesContainer">
+          {movies.Search.map((element, index) => {
+            return <Movie element={element} key={index} />;
+          })}
+        </div>
       </>
     );
   };
@@ -20,4 +23,4 @@ export default function  RecommendedMoviesDisplay ({ movies }){
 
   //Ternary operator will determine which functions JSX we will return
   return movies ? loaded() : loading();
-};
+}
